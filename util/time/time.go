@@ -13,9 +13,9 @@ const (
 	Minute string = "04"
 	Second string = "05"
 
-	DateSlashFormat     = Year + "/" + Month + "/" + Day
-	FullTimeFormat = Year + "-" + Month + "-" + Day + " " + Hour + ":" + Minute + ":" + Second
-	QueryFormat            = Year + "-" + Month + "-" + Day
+	DateSlashFormat = Year + "/" + Month + "/" + Day
+	FullTimeFormat  = Year + "-" + Month + "-" + Day + " " + Hour + ":" + Minute + ":" + Second
+	QueryFormat     = Year + "-" + Month + "-" + Day
 )
 
 // GetDateSlashFormatTime to get the time format for DateSlashFormat
@@ -26,6 +26,16 @@ func GetDateSlashFormatTime(t time.Time) string {
 // GetFullTimeFormat to get the full time format
 func GetFullTimeFormat(t time.Time) string {
 	return t.Local().Format(FullTimeFormat)
+}
+
+// GetQueryFormat to get the time format for query
+func GetQueryFormat(t time.Time) string {
+	return t.Local().Format(QueryFormat)
+}
+
+// ConvertStrToDateSlashFormat to convert DateSlashFormat to time pointer
+func ConvertStrToDateSlashFormat(t string) *time.Time {
+	return convertTime(t, DateSlashFormat)
 }
 
 // ConvertFullTimeFormat to convert FullTimeFormat str to time pointer
