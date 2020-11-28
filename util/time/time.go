@@ -23,14 +23,38 @@ func GetDateSlashFormatTime(t time.Time) string {
 	return t.Local().Format(DateSlashFormat)
 }
 
+// GetDateSlashFormatFromTimePointer to get the time format for DateSlashFormat
+func GetDateSlashFormatFromTimePointer(t *time.Time) string {
+	if t != nil {
+		return t.Local().Format(DateSlashFormat)
+	}
+	return ""
+}
+
 // GetFullTimeFormat to get the full time format
 func GetFullTimeFormat(t time.Time) string {
 	return t.Local().Format(FullTimeFormat)
 }
 
+// GetFullTimeFormatFromTimePointer to get the full time format
+func GetFullTimeFormatFromTimePointer(t *time.Time) string {
+	if t != nil {
+		return t.Local().Format(FullTimeFormat)
+	}
+	return ""
+}
+
 // GetQueryFormat to get the time format for query
 func GetQueryFormat(t time.Time) string {
 	return t.Local().Format(QueryFormat)
+}
+
+// GetQueryFormatFromTimePointer to get the time format for query
+func GetQueryFormatFromTimePointer(t *time.Time) string {
+	if t != nil {
+		return t.Local().Format(QueryFormat)
+	}
+	return ""
 }
 
 // ConvertStrToDateSlashFormat to convert DateSlashFormat to time pointer
